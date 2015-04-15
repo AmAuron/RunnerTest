@@ -1,4 +1,7 @@
-ZenvaRunner.Game = function () {};
+ZenvaRunner.Game = function () {
+  this.playerMinAngle = -20;
+  this.playerMaxAngle = 20;
+};
 
 ZenvaRunner.Game.prototype = {
   create : function(){
@@ -33,10 +36,31 @@ ZenvaRunner.Game.prototype = {
   },
   update: function() {
 
-    this.game.physics.arcade.collide(this.player.body, this.ground.body);
+    //If tapped
+    if(this.game.input.activePointer.isDown){
+      this.player.body.velocity.y -= 25;
+    }
+
+    if(this.player.body.velocity.y < 0 || this.game.input.activePointer.isDown){
+      if(this.player.angle > 0){
+        this.player.angle = 0;
+      }
+      if(this.player.angle> this.playerMinAngle){
+        this.player.angle -= 0.5;
+      }
+    } else if(this.player.body.velocity.y >=0 && !this.game.input.activePointer.isDown){
+      if(this.player.angle < this.playerMaxAngle){
+        this.player.angle += 0.5;
+      }
+    }
+
+    this.game.physics.arcade.collide(this.player, this.ground, this.groundHit, null, this);
   },
   shutdown: function(){
 
+  },
+  groundHit: functon(player, ground){
+    player.body.velocity.y =  -200;
   }
 
 
