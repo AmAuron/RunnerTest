@@ -21,17 +21,19 @@ ZenvaRunner.Game.prototype = {
     this.game.physics.startSystem(Phaser.Physics.ARCADE);
     this.game.physics.arcade.gravity.y = 400;
 
+    this.game.physics.enable(this.ground);
     this.game.physics.arcade.enableBody(this.ground);
     this.ground.body.allowGravity = false;
     this.ground.body.immovable = true;
 
+    this.game.physics.enable(this.player);
     this.game.physics.arcade.enableBody(this.player);
     this.player.body.collideWorldBounds = true;
     this.player.body.bounce.set(0.25);
   },
   update: function() {
 
-    this.game.physics.arcade.collide(this.player, this.ground);
+    this.game.physics.arcade.collide(this.player.body, this.ground.body);
   },
   shutdown: function(){
 
