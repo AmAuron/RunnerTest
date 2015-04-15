@@ -18,7 +18,7 @@ var Enemy = function(game, x, y, key, frame){
 };
 
 Enemy.prototype = Object.create(Phaser.Sprite.prototype);
-Enemy.prototype.constructor = Coin;
+Enemy.prototype.constructor = Enemy;
 
 Enemy.prototype.onRevived = function () {
   this.game.add.tween(this).to({y: this.y - 16}, 500, Phaser.Easing.Linear.NONE, true, 0, Infinity, true);
