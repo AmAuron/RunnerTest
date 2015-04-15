@@ -29,7 +29,7 @@ ZenvaRunner.Game.prototype = {
     this.player.body.collideWorldBounds = true;
     this.player.body.bounce.set(0.25);
   },
-  update: function(){
+  update: function() {
 
     this.game.physics.arcade.collide(this.player, this.ground);
   },
