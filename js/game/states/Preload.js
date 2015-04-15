@@ -33,7 +33,7 @@ ZenvaRunner.Preload.prototype = {
     this.preloadBar.cropEnabled = false;
   },
   update: function(){
-    if(this.cache.isSoundDecoded('gameMusica') && this.ready == true) {
+    if(this.cache.isSoundDecoded('gameMusic') && this.ready == true) {
       this.state.start('MainMenu');
     }
   },
