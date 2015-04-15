@@ -19,6 +19,7 @@ Scoreboard.prototype.show = function(score){
 
   var isNewHighScore = false;
   var highscore = localStorage.getItem('highscore');
+
   if(!highscore||highscore<score){
     isNewHighScore = true;
     highscore = score;
@@ -31,7 +32,7 @@ Scoreboard.prototype.show = function(score){
   gameoverText.x = this.game.width/2 - (gameoverText.textWidth / 2);
   this.add(gameoverText);
 
-  scoreText = this.game.add.bitmapText(0,200,'minecraftia', 'Your Score: ' + score, 24);
+  scoreText = this.game.add.bitmapText(0, 200, 'minecraftia', 'Your Score: ' + score, 24);
   scoreText.x = this.game.width / 2 - (scoreText.textWidth / 2);
   this.add(scoreText);
 
@@ -56,6 +57,6 @@ Scoreboard.prototype.show = function(score){
   this.game.input.onDown.addOnce(this.restart, this);
 };
 
-Score.prototype.restart = function(){
+Scoreboard.prototype.restart = function(){
   this.game.state.start('Game');
 }
