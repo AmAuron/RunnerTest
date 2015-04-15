@@ -7,9 +7,9 @@ ZenvaRunner.Boot.prototype = {
 
   preload: function(){
     this.load.image('logo', 'assets/images/logo.png');
-    this.load.image('preloaderbar', 'assets/images/preloader-bar.png');
+    this.load.image('preloaderBar', 'assets/images/preloader-bar.png');
   },
-  
+
   create: function(){
     this.game.stage.backgroundColor='#fff';
 
