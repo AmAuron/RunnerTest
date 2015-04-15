@@ -36,7 +36,7 @@ Scoreboard.prototype.show = function(score){
   scoreText.x = this.game.width / 2 - (scoreText.textWidth / 2);
   this.add(scoreText);
 
-  highScoreText = this.game.bitmapText(0,250,'minecraftia', 'Your High Score: ' + highscore, 24);
+  highScoreText = this.game.add.bitmapText(0,250,'minecraftia', 'Your High Score: ' + highscore, 24);
   highScoreText.x = this.game.width / 2 - (highScoreText.textWidth / 2);
   this.add(highScoreText);
 
